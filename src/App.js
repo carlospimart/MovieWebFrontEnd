@@ -26,7 +26,7 @@ export default function App() {
 		<Frames title="Movie_App">
 			<Frameset rows="120,*" key={frameBorder}>
 				<Frame name="header" {...frameProps}>
-        <Header {...headerProps} />
+                   <Header {...headerProps} />
 				</Frame>
 				<Frameset cols="200,*">
 					<Frame name="nav" {...frameProps}>
@@ -36,6 +36,7 @@ export default function App() {
 						<Films />
 					</Frame>
 				</Frameset>
+				
 			</Frameset>
 		</Frames>
 	);

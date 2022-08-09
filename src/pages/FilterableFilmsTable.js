@@ -8,10 +8,12 @@ class FilterableFilmsTable extends React.Component {
       super(props);
       this.state = {
         filterText: "",
-        afterYearOnly: false
+        afterYearOnly: false,
+        Year: null
       };
       this.handleFilterTextChange=this.handleFilterTextChange.bind(this);
       this.handleAfterYearChange=this.handleAfterYearChange.bind(this);
+      this.handleYear=this.handleYear.bind(this);
     }
     handleFilterTextChange(FT){
       this.setState({
@@ -24,6 +26,11 @@ class FilterableFilmsTable extends React.Component {
         afterYearOnly:AYC
       })
     }
+    handleYear(Y){
+      this.setState({
+        Year:Y
+      })
+    }
     
     render() {
       
@@ -33,8 +40,10 @@ class FilterableFilmsTable extends React.Component {
       <SearchBar 
                   filterText={this.state.filterText} 
                   afterYearOnly={this.state.afterYearOnly}
+                  Year={this.state.Year}
                   onFilterTextChange={this.handleFilterTextChange}
                   onAfterYearChange={this.handleAfterYearChange}
+                  onYear={this.handleYear}
                   
 
                   />
@@ -42,6 +51,7 @@ class FilterableFilmsTable extends React.Component {
         <FilmsTable films={this.props.data} 
                     filterText={this.state.filterText}
                     afterYearOnly={this.state.afterYearOnly}
+                    Year={this.state.Year}
         />
         
         </div>

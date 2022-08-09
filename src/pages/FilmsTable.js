@@ -7,8 +7,7 @@ class FilmsTable extends React.Component {
   constructor(props){
     super(props)
         this.state = {
-           
-            
+                  
         }
         
     }
@@ -35,7 +34,7 @@ class FilmsTable extends React.Component {
        
        const filterText = this.props.filterText.toLowerCase();
        const afterYearOnly = this.props.afterYearOnly;
-       
+       const Year = this.props.Year;
        const {myFullName} = this.state
         
       
@@ -46,7 +45,7 @@ class FilmsTable extends React.Component {
         if (film.title.toLowerCase().indexOf(filterText) === -1) {
           return;
         }
-        if (afterYearOnly && film.release_year != 2019) {
+        if (afterYearOnly && film.release_year != Year) {
           return;
         }
         rows.push(
