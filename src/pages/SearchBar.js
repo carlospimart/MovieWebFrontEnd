@@ -6,7 +6,12 @@ class SearchBar extends React.Component {
 
     const filterText = this.props.filterText;
     const afterYearOnly = this.props.afterYearOnly;
+    const afterYearOnly_2 = this.props.afterYearOnly_2;
     const Year = this.props.Year;
+    const From = this.props.From;
+    const To = this.props.To;
+
+  
      
     return (
       
@@ -18,7 +23,13 @@ class SearchBar extends React.Component {
         onChange={(e)=>this.props.onAfterYearChange(e.target.checked)}/>
           Only show films of the <input type='number' placeholder="Year" value={Year} 
           onChange={(e)=>this.props.onYear(e.target.value)}/>
-        
+        </p>      
+        <p>
+        <input type="checkbox" ckecked = {afterYearOnly_2} 
+        onChange={(m)=>this.props.onAfterYearChange_2(m.target.checked)}/>
+        Only show films between years from <input type='number' placeholder="From" value={From} 
+          onChange={(s)=>this.props.onFrom(s.target.value)}/> to <input type='number' placeholder="to" 
+          value={To} onChange={(n)=>this.props.onTo(n.target.value)}/>
         </p>
       </form>
       

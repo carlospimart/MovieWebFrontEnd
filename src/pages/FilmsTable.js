@@ -12,31 +12,14 @@ class FilmsTable extends React.Component {
         
     }
 
-    
-
-  /*handleSubmit = (event) => {
-      event.preventDefault()
-      
-  }
-
-  handleInputChange = (event) => {
-      event.preventDefault()
-     // console.log(event)
-     // console.log(event.target.name)
-     // console.log(event.target.value)
-     this.setState({
-         [event.target.name]: event.target.value
-     })
-  }*/
-    
-    
   render() {
        
        const filterText = this.props.filterText.toLowerCase();
        const afterYearOnly = this.props.afterYearOnly;
+       const afterYearOnly_2 = this.props.afterYearOnly_2;
        const Year = this.props.Year;
-       const {myFullName} = this.state
-        
+       const From = this.props.From;
+       const To = this.props.To;
       
       const rows = [];
       rows.push()
@@ -46,6 +29,12 @@ class FilmsTable extends React.Component {
           return;
         }
         if (afterYearOnly && film.release_year != Year) {
+          return;
+        }
+        if (afterYearOnly_2 && film.release_year < From) {
+          return;
+        }
+        if (afterYearOnly_2 && film.release_year > To) {
           return;
         }
         rows.push(
