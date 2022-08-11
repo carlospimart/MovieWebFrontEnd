@@ -7,6 +7,7 @@ class FilterableFilmsTable extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        Radio: "",
         filterText: "",
         afterYearOnly: false,
         Year: null,
@@ -19,6 +20,7 @@ class FilterableFilmsTable extends React.Component {
       this.handleYear=this.handleYear.bind(this);
       this.handleFrom=this.handleFrom.bind(this);
       this.handleTo=this.handleTo.bind(this);
+      this.handleRadio=this.handleRadio.bind(this);
     }
     handleFilterTextChange(FT){
       this.setState({
@@ -51,7 +53,12 @@ class FilterableFilmsTable extends React.Component {
         To:T
       })
     }
-    
+    handleRadio(R){
+      this.setState({
+        Radio:R
+      })
+  
+    }
     render() {
       
       return (
@@ -59,9 +66,11 @@ class FilterableFilmsTable extends React.Component {
        
       <SearchBar 
                   filterText={this.state.filterText} 
+                  Radio={this.state.Radio} 
                   afterYearOnly={this.state.afterYearOnly}
                   afterYearOnly_2={this.state.afterYearOnly_2}
                   onFilterTextChange={this.handleFilterTextChange}
+                  onRadio={this.handleRadio}
                   onAfterYearChange={this.handleAfterYearChange}
                   onAfterYearChange_2={this.handleAfterYearChange_2}
                   onYear={this.handleYear}
@@ -74,6 +83,7 @@ class FilterableFilmsTable extends React.Component {
                  
         <FilmsTable films={this.props.data} 
                     filterText={this.state.filterText}
+                    Radio={this.state.Radio} 
                     afterYearOnly={this.state.afterYearOnly}
                     afterYearOnly_2={this.state.afterYearOnly_2}
                     Year={this.state.Year}

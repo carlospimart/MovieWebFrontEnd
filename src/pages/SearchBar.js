@@ -10,12 +10,22 @@ class SearchBar extends React.Component {
     const Year = this.props.Year;
     const From = this.props.From;
     const To = this.props.To;
-
-  
-     
+   
     return (
       
       <form>
+        <p>
+        
+        <input type="radio" value="Title" name="Filter"
+        onChange={(e)=>this.props.onRadio(e.target.value)}/>Title
+        
+        <input type="radio" value="Language" name="Filter"
+        onChange={(e)=>this.props.onRadio(e.target.value)}/>Language
+
+        <input type="radio" value="Category" name="Filter"
+        onChange={(e)=>this.props.onRadio(e.target.value)}/>Category
+        
+        </p>
         <input type="text" placeholder="Search..." value={filterText}
         onChange={(e)=>this.props.onFilterTextChange(e.target.value)}/>
         <p>

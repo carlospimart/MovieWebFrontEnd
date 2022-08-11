@@ -20,15 +20,31 @@ class FilmsTable extends React.Component {
        const Year = this.props.Year;
        const From = this.props.From;
        const To = this.props.To;
-      
-      const rows = [];
+       const Radio = this.props.Radio
+       //const handleChange = this.props.handleChange
+       const rows = [];
       rows.push()
       
       this.props.films.forEach((film) => {
-        if (film.title.toLowerCase().indexOf(filterText) === -1) {
-          return;
+        
+        if ( Radio=="Title" ){
+          
+          if (film.title.toLowerCase().indexOf(filterText) === -1) {
+             return;
+          };
+          
+        }else if(Radio=="Language"){
+          if (film.language.name.toLowerCase().indexOf(filterText) === -1) {
+            return;
+         };
+        }else{
+          if (film.category.name.toLowerCase().indexOf(filterText) === -1) {
+            return;
+         };
         }
+        
         if (afterYearOnly && film.release_year != Year) {
+          
           return;
         }
         if (afterYearOnly_2 && film.release_year < From) {
